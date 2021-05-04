@@ -1,18 +1,21 @@
 import React from "react";
+import "./Info.css";
 import Loader from "./ui/Loader";
 const Info = ({ status, data, load }) => {
   return (
-    <div className="info-margin">
+    <div className="info">
       {load ? (
         <Loader />
       ) : data.length ? (
-        <h1>
-          {data.map(
-            (items) => items.name + ": " + items.available_capacity + "  "
-          )}
-        </h1>
+        <div className="info-data">
+          {data.map((items) => (
+            <div>
+              {items.name} {items.available_capacity}
+            </div>
+          ))}
+        </div>
       ) : (
-        <h1>no slot</h1>
+        <p>no slot</p>
       )}
     </div>
   );
