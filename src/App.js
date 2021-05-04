@@ -8,7 +8,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
-  //const [dataStatus, setDataStatus] = useState(true);
+  const [dataStatus, setDataStatus] = useState(true);
   useEffect(() => {
     const fetchItems = async () => {
       setIsLoading(true);
@@ -19,7 +19,7 @@ const App = () => {
       //console.log(result.data.sessions);
 
       setData(result.data.sessions);
-      //if (data.length == 0) setDataStatus(false);
+      if (data.length == 0) setDataStatus(false);
       setIsLoading(false);
     };
 
@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className="container">
       <Search getQuery={(q) => setQuery(q)} />
-      <Info data={data} load={isLoading} />
+      <Info status={dataStatus} data={data} load={isLoading} />
     </div>
   );
 };
