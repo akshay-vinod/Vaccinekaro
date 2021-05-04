@@ -1,10 +1,10 @@
 import React from "react";
-
+import Loader from "./ui/Loader";
 const Info = ({ data, load }) => {
   return (
-    <div>
+    <div className="info-margin">
       {load ? (
-        <h1>loading</h1>
+        <Loader />
       ) : (
         <h1>
           {data.map(
