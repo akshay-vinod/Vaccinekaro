@@ -1,15 +1,31 @@
 import React, { useState } from "react";
+import Calendar from "react-calendar";
 import "./Search.css";
-const Search = ({ getQuery }) => {
+import "react-calendar/dist/Calendar.css";
+const Search = ({ getQuery, getmyDate }) => {
   const [text, setText] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [passDate, setPassDate] = useState("");
 
-  const onChange = (q) => {
+  const onInput = (q) => {
     setText(q);
     getQuery(q);
+  };
+  const onChange = (date) => {
+    setDate(date);
+
+    var options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    };
+    var newdate = date.toLocaleDateString("in", options).replace(/\//g, "-");
+    getmyDate(newdate);
   };
 
   return (
     <div className="search-container">
+      <Calendar onChange={onChange} value={date} />
       <div className="search">
         <div className="search-box">
           <input
@@ -17,7 +33,7 @@ const Search = ({ getQuery }) => {
             className="search-input"
             placeholder="pincode"
             value={text}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onInput(e.target.value)}
           />
 
           <button className="search-button">

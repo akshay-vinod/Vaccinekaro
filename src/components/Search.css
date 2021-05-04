@@ -29,12 +29,12 @@
 }
 .search {
   width: 100%;
+  margin-left: 20px;
 }
 .search-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
