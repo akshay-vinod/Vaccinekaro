@@ -25,7 +25,10 @@ const Search = ({ getQuery, getmyDate }) => {
 
   return (
     <div className="search-container">
-      <Calendar onChange={onChange} value={date} />
+      <div>
+        <Calendar onChange={onChange} value={date} />
+      </div>
+
       <div className="search">
         <div className="search-box">
           <input
