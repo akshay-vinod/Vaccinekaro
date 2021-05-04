@@ -5,7 +5,7 @@ const Info = ({ status, data, load }) => {
     <div className="info-margin">
       {load ? (
         <Loader />
-      ) : status ? (
+      ) : data.length ? (
         <h1>
           {data.map(
             (items) => items.name + ": " + items.available_capacity + "  "

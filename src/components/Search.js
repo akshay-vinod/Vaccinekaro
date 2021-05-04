@@ -15,7 +15,7 @@ const Search = ({ getQuery }) => {
           <input
             type="number"
             className="search-input"
-            placeholder="Search.."
+            placeholder="pincode"
             value={text}
             onChange={(e) => onChange(e.target.value)}
           />
