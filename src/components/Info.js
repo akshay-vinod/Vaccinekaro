@@ -10,7 +10,8 @@ const Info = ({ status, data, load }) => {
         <div className="info-data">
           {data.map((items) => (
             <div>
-              {items.name} {items.available_capacity}
+              {items.name + ":"} {items.available_capacity + "("}
+              {items.vaccine + ")"}
             </div>
           ))}
         </div>

@@ -9,7 +9,15 @@ const App = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [forDate, setForDate] = useState("");
+  const [forDate, setForDate] = useState(
+    new Date()
+      .toLocaleDateString("in", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+      .replace(/\//g, "-")
+  );
   const [dataStatus, setDataStatus] = useState(true);
   useEffect(() => {
     const fetchItems = async () => {
