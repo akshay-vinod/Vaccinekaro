@@ -19,8 +19,11 @@ const Search = () => {
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=04-05-2021`
       );
       setData(result.data.sessions);
-      if (data.length === 0) setStatus(false);
-      if (enter) setLoading(false);
+
+      if (enter) {
+        setLoading(false);
+        if (data.length === 0) setStatus(false);
+      }
     };
     fetchData();
     console.log(data);
@@ -46,7 +49,11 @@ const Search = () => {
           <h1>loading...</h1>
         ) : (
           <h1>
-            {status ? data.map((items) => items.available_capacity) : "no slot"}
+            {status
+              ? data.map(
+                  (items) => items.name + ":" + items.available_capacity + " "
+                )
+              : "no slot"}
           </h1>
           /*<section>
             {enter ? (
