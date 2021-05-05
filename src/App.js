@@ -26,7 +26,7 @@ const App = () => {
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${query}&date=${forDate}`
       );
 
-      console.log(forDate);
+      //console.log(forDate);
 
       setData(result.data.sessions);
       if (data.length == 0) setDataStatus(false);
