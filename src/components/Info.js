@@ -1,7 +1,7 @@
 import React from "react";
 import "./Info.css";
 import Loader from "./ui/Loader";
-const Info = ({ status, data, load }) => {
+const Info = ({ data, load }) => {
   return (
     <div className="info">
       {load ? (

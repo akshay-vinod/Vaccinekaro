@@ -5,7 +5,6 @@ import "react-calendar/dist/Calendar.css";
 const Search = ({ getQuery, getmyDate }) => {
   const [text, setText] = useState("");
   const [date, setDate] = useState(new Date());
-  const [passDate, setPassDate] = useState("");
 
   const onInput = (q) => {
     setText(q);
