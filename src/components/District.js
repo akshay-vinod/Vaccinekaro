@@ -14,13 +14,13 @@ const District = ({ selectDistrict }) => {
         <option selected disabled value="">
           Choose an option
         </option>
-        <option value="223">Kasaragod</option>
+        <option value="295">Kasaragod</option>
         <option value="296">Thiruvananthapuram</option>
         <option value="297">Kannur</option>
         <option value="298">Kollam</option>
         <option value="299">Wayanad</option>
-        <option value="3">Pathanamthitta</option>
-        <option value="2">Alappuzha</option>
+        <option value="300">Pathanamthitta</option>
+        <option value="301">Alappuzha</option>
         <option value="302">Malappuram</option>
         <option value="303">Thrissur</option>
         <option value="304">Kottayam</option>

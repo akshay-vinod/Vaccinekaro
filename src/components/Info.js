@@ -10,7 +10,7 @@ const Info = ({ data, load, switchState }) => {
         items.sessions[0].available_capacity > 0 ? setAvail(true) : ""
       );
     } else setAvail(true);
-    console.log(JSON.stringify(data));
+    //console.log(JSON.stringify(data));
   }, [data, switchState]);
   return (
     <div className="info">
