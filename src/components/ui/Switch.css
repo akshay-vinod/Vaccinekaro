@@ -1,7 +1,19 @@
 /* Switch 1 Specific Styles Start */
-
+.switch-container {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  padding: 10vh 0vw 10px 30vw;
+}
+.switch-container p {
+  padding-right: 10px;
+}
+.just {
+  margin-left: auto;
+}
 input[type="checkbox"].switch_1 {
-  font-size: 30px;
+  font-size: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -38,4 +50,9 @@ input[type="checkbox"].switch_1:after {
 
 input[type="checkbox"].switch_1:checked:after {
   left: calc(100% - 1.5em);
+}
+@media only screen and (max-width: 890px) {
+  .switch-container {
+    padding: 10vh 0vw 10px 0;
+  }
 }

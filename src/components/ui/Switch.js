@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Switch.css";
 import "react-calendar/dist/Calendar.css";
-const Switch = () => {
+const Switch = ({ getToggleState, resetData }) => {
+  const [search, setSearch] = useState(true);
+  const toggle = () => {
+    setSearch((prevSearch) => !prevSearch);
+    getToggleState(search);
+    resetData([]);
+  };
   return (
     <div>
-      <div class="switch_box box_1">
-        <input type="checkbox" className="switch_1" />
+      <div className="switch_box box_1">
+        <div>
+          <label className="switch-container">
+            <p>{search ? "State" : "Pincode"}</p>
+            <input type="checkbox" onClick={toggle} className="switch_1" />
+          </label>
+        </div>
       </div>
     </div>
   );
