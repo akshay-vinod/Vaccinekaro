@@ -12,7 +12,7 @@ const District = ({ selectDistrict, stateSelected }) => {
   useEffect(() => {
     //console.log(stateSelected);
     const fetchDistrict = () => {
-      console.log(stateSelected);
+      //console.log(stateSelected);
       fetch(
         `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${stateSelected}`
       )
