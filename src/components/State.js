@@ -26,7 +26,6 @@ const State = ({ selectState }) => {
         <option selected disabled value="">
           Choose an State
         </option>
-
         {list.map((items) => {
           return <option value={items.state_id}>{items.state_name}</option>;
         })}
