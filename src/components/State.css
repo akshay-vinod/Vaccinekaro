@@ -50,3 +50,8 @@ select {
 .select:hover::after {
   color: #1087ff;
 }
+
+.disable-option {
+  display: none;
+  pointer-events: none;
+}

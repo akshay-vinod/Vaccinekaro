@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import State from "./State";
 import District from "./District";
 import "./Search.css";
 import "react-calendar/dist/Calendar.css";
-const Search = ({ getQuery, getmyDate, Disable, getDistrict }) => {
+const Search = ({ getQuery, getmyDate, Disable, getDistrict, getUpdate }) => {
   const [text, setText] = useState("");
   const [date, setDate] = useState(new Date());
+  const [stateSelect, setStateSelect] = useState();
 
   const onInput = (q) => {
     setText(q);
@@ -23,6 +24,11 @@ const Search = ({ getQuery, getmyDate, Disable, getDistrict }) => {
     var newdate = date.toLocaleDateString("in", options).replace(/\//g, "-");
     getmyDate(newdate);
   };
+  useEffect(() => {
+    //console.log(stateSelect);
+    getUpdate(stateSelect);
+    getDistrict();
+  }, [stateSelect]);
 
   return (
     <div className="search-container">
@@ -30,8 +36,11 @@ const Search = ({ getQuery, getmyDate, Disable, getDistrict }) => {
         <Calendar onChange={onChange} value={date} />
       </div>
       <div className={Disable ? "disble-pincode" : "state-district"}>
-        <State />
-        <District selectDistrict={(d) => getDistrict(d)} />
+        <State selectState={(s) => setStateSelect(s)} />
+        <District
+          stateSelected={stateSelect}
+          selectDistrict={(d) => getDistrict(d)}
+        />
       </div>
       <div className={Disable ? "search" : "disble-pincode"}>
         <div className="search-box">
@@ -44,7 +53,6 @@ const Search = ({ getQuery, getmyDate, Disable, getDistrict }) => {
             onChange={(e) => onInput(e.target.value)}
             type="text"
             pattern="\d*"
-            maxlength="6"
           />
 
           <button className="search-button">

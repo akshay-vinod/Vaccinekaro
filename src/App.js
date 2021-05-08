@@ -13,6 +13,8 @@ const App = () => {
   const [toggle, setToggle] = useState(false);
   //for district
   const [district, setDistrict] = useState();
+  //for update on state change
+  const [update, setUpdate] = useState();
   //for error free
   //const [errorFree, setErrorFree] = useState(false);
   const [forDate, setForDate] = useState(
@@ -43,7 +45,7 @@ const App = () => {
     };
 
     fetchItems();
-  }, [query, forDate, district, toggle]);
+  }, [query, forDate, district, toggle, update]);
 
   return (
     <div className="container">
@@ -56,6 +58,7 @@ const App = () => {
         getQuery={(q) => setQuery(q)}
         getmyDate={(d) => setForDate(d)}
         getDistrict={(dis) => setDistrict(dis)}
+        getUpdate={(update) => setUpdate(update)}
       />
       <Info switchState={toggle} data={data} load={isLoading} />
     </div>
