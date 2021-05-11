@@ -1,0 +1,11 @@
+a {
+  text-decoration: none;
+}
+.dev {
+  margin: 20vh 0 0 0;
+}
+@media only screen and (max-width: 890px) {
+  .dev {
+    margin: 20px 0;
+  }
+}

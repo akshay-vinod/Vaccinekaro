@@ -4,6 +4,7 @@ import axios from "axios";
 import Search from "./components/Search";
 import Info from "./components/Info";
 import Switch from "./components/ui/Switch";
+import Dev from "./components/Dev";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
       .replace(/\//g, "-")
   );
   //const [dataStatus, setDataStatus] = useState(true);
-
+  //var stateData = [];
   useEffect(() => {
     const fetchItems = async () => {
       setIsLoading(true);
@@ -41,6 +42,16 @@ const App = () => {
       //console.log(JSON.stringify(result.data));
       setData(toggle ? result.data.sessions : result.data.centers);
       //if (data.length === 0) setDataStatus(false);
+
+      /*stateData = data.sort(function (a, b) {
+        return (
+          parseInt(b.sessions[0].available_capacity) -
+          parseInt(a.sessions[0].available_capacity)
+        );
+        //console.log(a.sessions[0].available_capacity)
+      });
+      console.log(stateData);
+      if(data.length >0)setData(stateData);*/
       setIsLoading(false);
     };
 
@@ -61,6 +72,7 @@ const App = () => {
         getUpdate={(update) => setUpdate(update)}
       />
       <Info switchState={toggle} data={data} load={isLoading} />
+      <Dev />
     </div>
   );
 };
